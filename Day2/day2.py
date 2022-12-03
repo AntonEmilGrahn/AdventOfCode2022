@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-import numpy as np
 
 def read_data():
     with open('data.txt', 'r') as f:

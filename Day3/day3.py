@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-import numpy as np
 
 def read_data():
     with open('data.txt', 'r') as f:
@@ -39,7 +38,6 @@ def calculate_badge_score(plain_array):
             try:
                 for item in backpack:
                     if item in plain_array[i+1] and item in plain_array[i+2]:
-                        print(backpack)
                         score = ascii_scoring(item)
                         badge_score+= score
                         raise StopIteration
