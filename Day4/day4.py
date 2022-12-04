@@ -16,19 +16,15 @@ def read_data():
     return parsed_array
 
 def calculate_score(parsed_array):
-    total_score = 0
-    second_score = 0
+    first_score,second_score = 0,0
     for pair in parsed_array:
-        try:
-            if bool(pair[0] & pair[1]):
-                second_score+=1
-            if pair[0].issubset(pair[1]) or pair[1].issubset(pair[0]) :
-                total_score+= 1
-                raise StopIteration
-        except StopIteration: pass
-    return total_score,second_score
+        if bool(pair[0] & pair[1]): 
+            second_score+=1
+        if pair[0].issubset(pair[1]) or pair[1].issubset(pair[0]): 
+            first_score+= 1
+    return first_score,second_score
 
 if __name__ == "__main__":
     parsed_array = read_data()
-    score,second_score= calculate_score(parsed_array)
-    print("Score: ",score, "Second Score: ", second_score)
+    first_score,second_score= calculate_score(parsed_array)
+    print("First Score: ",first_score, "Second Score: ", second_score)
